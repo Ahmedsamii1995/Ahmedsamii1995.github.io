@@ -1,0 +1,72 @@
+:root{--bg:#151515;--panel:#1e1e1e;--line:#333;--text:#f1f1f1;--mute:#b4b4b4;--pink:#ff91ac;--dot:#2f2f2f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit}
+.pv-bar{background:#7a1f2b;color:#fff;font-size:13px;text-align:center;padding:4px 8px}
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px clamp(16px,4vw,48px);background:rgba(21,21,21,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{font-weight:700;text-decoration:none;white-space:nowrap}
+.nav nav a{margin-left:20px;text-decoration:none;color:var(--mute);font-size:15px}
+.nav nav a:hover{color:var(--pink)}
+.hero{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.5px,transparent 1.6px);background-size:28px 28px;border-bottom:1px solid var(--line);padding:28px 16px 48px;text-align:center}
+.canvas{max-width:1200px;margin:0 auto}
+.flow{width:100%;height:auto;display:block}
+.flow-m{display:none}
+.flow .links use{fill:none;stroke:#8a8a8a;stroke-width:3;stroke-dasharray:6 8;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.flow .pulses circle{fill:var(--pink);filter:drop-shadow(0 0 6px var(--pink))}
+.node rect{fill:#2a2a2a;stroke:#5a5a5a;stroke-width:2}
+.node text{fill:#c8c8c8;font:14px system-ui,sans-serif;text-anchor:middle}
+.port{fill:var(--bg);stroke:#8a8a8a;stroke-width:2}
+.ring{fill:none;stroke:var(--pink);stroke-width:6;animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{stroke-width:9;opacity:.75}}
+.hero-text h1{font-size:clamp(34px,6vw,60px);line-height:1.1;margin:8px 0}
+.sub{color:var(--pink);font-size:clamp(17px,2.4vw,24px);margin:0 0 22px}
+.sub span{color:#777;margin:0 6px}
+.btn{display:inline-block;padding:10px 20px;border:1px solid #555;border-radius:999px;text-decoration:none;font-weight:600;margin:4px 6px}
+.btn:hover{border-color:var(--pink)}
+.btn.primary{background:var(--pink);border-color:var(--pink);color:#191919}
+.sec{max-width:1100px;margin:0 auto;padding:64px 20px 8px}
+.sec h2{font-size:32px;margin:0 0 24px}
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:36px}
+.lead{font-size:20px;line-height:1.6;margin:0}
+.skills h3{margin:0 0 8px}
+dt{color:var(--pink);font-weight:700;margin-top:12px}
+dd{margin:2px 0 0;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card.wide{grid-column:1/-1}
+.card img{width:100%;display:block;background:#0e0e0e}
+.card img.tall{max-height:360px;object-fit:cover;object-position:top}
+.card.wide>img{max-height:420px;object-fit:cover}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#0e0e0e}
+.trio img{max-height:460px;object-fit:cover;object-position:top}
+.body{padding:20px 22px 22px}
+.body h3{margin:0 0 8px;font-size:20px}
+.body p{margin:0 0 10px;color:var(--mute)}
+.tags{font-size:13px;color:var(--pink)!important}
+.more{color:var(--text);font-weight:600;text-decoration-color:var(--pink);text-underline-offset:4px}
+.timeline{list-style:none;margin:0 0 20px;padding:0;border-left:2px solid var(--line)}
+.timeline li{padding:6px 0 18px 20px;position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
+.timeline li:before{content:"";position:absolute;left:-7px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--pink)}
+.timeline span{color:var(--mute)}
+.edu{color:var(--mute)}
+footer{margin-top:72px;padding:24px 16px;border-top:1px solid var(--line);text-align:center;color:#888;font-size:13px}
+@media (max-width:760px){
+ .flow-d{display:none}.flow-m{display:block}
+ .about{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr}
+ .trio{grid-template-columns:repeat(3,1fr)}
+ .nav nav a{margin-left:9px;font-size:13px}.nav{padding:12px 12px}
+ .sec{padding-top:48px}
+}
+@media (prefers-reduced-motion:reduce){
+ .flow .links use,.ring{animation:none}
+ html{scroll-behavior:auto}
+}
+
+@media (max-width:360px){.nav nav a:first-child{display:none}}
+
+.lead{color:#b8b8b8;margin:-8px 0 22px;max-width:720px}
+.svc .card .body{padding:20px}
+@media (max-width:360px){.nav nav a[href="#services"]{display:none}}
